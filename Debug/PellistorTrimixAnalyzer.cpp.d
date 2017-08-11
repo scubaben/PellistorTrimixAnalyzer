@@ -1,6 +1,6 @@
 C:\Users\Ben\AppData\Local\Temp\VMBuilds\PellistorTrimixAnalyzer\adafruit_adafruit_avr_feather32u4\Debug\PellistorTrimixAnalyzer.cpp.o: \
  C:\Users\Ben\AppData\Local\Temp\VMBuilds\PellistorTrimixAnalyzer\adafruit_adafruit_avr_feather32u4\Debug\PellistorTrimixAnalyzer.cpp \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/arduino.h \
+ C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/binary.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/WCharacter.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/WString.h \
@@ -20,5 +20,4 @@ C:\Users\Ben\AppData\Local\Temp\VMBuilds\PellistorTrimixAnalyzer\adafruit_adafru
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\EEPROM\src/EEPROM.h \
  C:\Users\Ben\AppData\Local\Temp\VMBuilds\PellistorTrimixAnalyzer\adafruit_adafruit_avr_feather32u4\Debug\Sensor.h \
  C:\Program\ Files\ (x86)\Arduino\libraries\ADS1X15ADC/Adafruit_ADS1015.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
- C:\Program\ Files\ (x86)\Microsoft\ Visual\ Studio\2017\Community\Common7\IDE\Extensions\02oghilb.30b\Micro\ Platforms\default\debuggers\VM_DBG/VM_DBG.h
+ C:\Program\ Files\ (x86)\Microsoft\ Visual\ Studio\2017\Community\Common7\IDE\Extensions\iznu5qi1.uuf\Micro\ Platforms\default\debuggers\VM_DBG/VM_DBG.h

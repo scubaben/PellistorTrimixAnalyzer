@@ -133,24 +133,10 @@ float getVoltage() {
 
 void displayGas() {
 	if ((millis() - lastSampleMillis) > sampleRate) {
-		if (sensor1.gasContent() > 0.1) {
-			printFloat(sensor1.gasContent(), false, 0, 0);
-			lcd.print("%");
-		}
-
-		else {
-			lcd.setCursor(0, 0);
-			lcd.print("     ");
-		}
-
-		if (sensor2.gasContent() > 0.1) {
-			printFloat(sensor2.gasContent(), false, 0, 1);
-			lcd.print("%");
-		}
-		else {
-			lcd.setCursor(0, 1);
-			lcd.print("     ");
-		}
+		printFloat(sensor1.gasContent(), false, 0, 0);
+		lcd.print("%");
+		printFloat(sensor2.gasContent(), false, 0, 1);
+		lcd.print("%");
 		lcd.setCursor(6, 0);
 		lcd.write(byte(0));
 		lcd.setCursor(6, 1);
@@ -280,13 +266,16 @@ void calibrate() {
 		break;
 	case 2:
 		calibrateOxygen();
-		calibrateHelium;
+		calibrateHelium();
 		break;
 	}
 }
 
 void calibrateOxygen() {
 	float calibrationPoint;
+	lcd.clear();
+	lcd.print(" O2 Calibration");
+	delay(1000);
 	lcd.clear();
 	lcd.print("Calibration FO2:");
 	currentSetting = 209;
@@ -332,7 +321,7 @@ void calibrateOxygen() {
 		lcd.setCursor(0, 1);
 		lcd.print("Data");
 		delay(3000);
-		calibrate();
+		calibrateOxygen();
 	}
 	lcd.clear();
 	lcd.print("Calibration");
@@ -342,10 +331,57 @@ void calibrateOxygen() {
 	delay(1500);
 	lcd.clear();
 
+	if (!sensor2.isCalibrated()) {
+		calibrateHelium();
+	}
+
 }
 
 void calibrateHelium() {
+	float mvOffset;
+	lcd.clear();
+	lcd.print(" HE Calibration");
+	delay(1000);
+	lcd.clear();
+	lcd.print("mV in Air:");
+	lcd.setCursor(0, 1);
+	lcd.print("Click to Confirm");
+	do {
+		printFloat(sensor2.mv(), false, 10, 0);
+		lcd.print("mV");
+	} while (!buttonDetect(buttonPin));
+	mvOffset = sensor2.mv();
 
+	lcd.clear();
+	lcd.print("mv in HE:");
+	lcd.setCursor(0, 1);
+	lcd.print("Click to Confirm");
+	do {
+		printFloat(sensor2.mv(), false, 10, 0);
+		lcd.print("mV");
+	} while (!buttonDetect(buttonPin));
+
+	if (sensor2.validateCalibration(100.0)) {
+		sensor2.saveCalibration(100.0 / sensor2.mv(), mvOffset);
+	}
+	else {
+		lcd.clear();
+		lcd.print("Bad Calibration");
+		lcd.setCursor(0, 1);
+		lcd.print("Data");
+		delay(3000);
+		calibrateHelium();
+	}
+	lcd.clear();
+	lcd.print("Calibration");
+	lcd.setCursor(0, 1);
+	lcd.print("Saved");
+
+	delay(1500);
+	lcd.clear();
+	if (!sensor2.isCalibrated()) {
+		calibrateOxygen();
+	}
 }
 
 //prints floats in a nicely formatted way so they don't jump around on the LCD screen
@@ -355,7 +391,6 @@ void printFloat(float floatToPrint, bool highlight, int column, int row) {
 	if (highlight) {
 		lcd.write(byte(2));
 	}
-
 
 	if (formattedValue.length() > 4) {
 		formattedValue = formattedValue.substring(0, 3);

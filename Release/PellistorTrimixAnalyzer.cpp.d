@@ -1,6 +1,6 @@
 C:\Users\Ben\AppData\Local\Temp\VMBuilds\PellistorTrimixAnalyzer\adafruit_adafruit_avr_feather32u4\Release\PellistorTrimixAnalyzer.cpp.o: \
  C:\Users\Ben\AppData\Local\Temp\VMBuilds\PellistorTrimixAnalyzer\adafruit_adafruit_avr_feather32u4\Release\PellistorTrimixAnalyzer.cpp \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/arduino.h \
+ C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/binary.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/WCharacter.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/WString.h \
@@ -19,5 +19,4 @@ C:\Users\Ben\AppData\Local\Temp\VMBuilds\PellistorTrimixAnalyzer\adafruit_adafru
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Print.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\EEPROM\src/EEPROM.h \
  C:\Users\Ben\AppData\Local\Temp\VMBuilds\PellistorTrimixAnalyzer\adafruit_adafruit_avr_feather32u4\Release\Sensor.h \
- C:\Program\ Files\ (x86)\Arduino\libraries\ADS1X15ADC/Adafruit_ADS1015.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h
+ C:\Program\ Files\ (x86)\Arduino\libraries\ADS1X15ADC/Adafruit_ADS1015.h

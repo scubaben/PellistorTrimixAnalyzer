@@ -310,9 +310,10 @@ void calibrateOxygen() {
 		lcd.print("mV");
 
 	} while (!buttonDetect(buttonPin));
+	calibrationPoint = calibrationPoint / 100.0;
 
 	if (sensor1.isConnected() && sensor1.validateCalibration(calibrationPoint)) {
-		sensor1.saveCalibration(calibrationPoint / sensor1.mv());
+		sensor1.saveCalibration(sensor1.mv() / calibrationPoint);
 	}
 
 	else {
@@ -361,8 +362,8 @@ void calibrateHelium() {
 		lcd.print("mV");
 	} while (!buttonDetect(buttonPin));
 
-	if (sensor2.validateCalibration(100.0)) {
-		sensor2.saveCalibration(100.0 / sensor2.mv(), mvOffset);
+	if (sensor2.validateCalibration(.99)) {
+		sensor2.saveCalibration((sensor2.mv() - mvOffset)/.99, mvOffset);
 	}
 	else {
 		lcd.clear();

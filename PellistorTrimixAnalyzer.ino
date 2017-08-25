@@ -363,7 +363,7 @@ void calibrateHelium() {
 	} while (!buttonDetect(buttonPin));
 
 	if (sensor2.validateCalibration(.99)) {
-		sensor2.saveCalibration((sensor2.mv() - mvOffset)/.99, mvOffset);
+		sensor2.saveCalibration((sensor2.mv() - mvOffset)/1.0, mvOffset);
 	}
 	else {
 		lcd.clear();

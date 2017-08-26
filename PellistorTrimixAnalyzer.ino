@@ -232,44 +232,48 @@ void calibrate() {
 	lcd.print("Calibration Mode");
 	delay(1750);
 	lcd.clear();
+	calibrateOxygen();
+	/*
 	while (digitalRead(buttonPin) == LOW) {
-	}
-	delay(250);
-	lcd.print("Calibrate?");
-	while (!buttonDetect(buttonPin)) {
-		if (currentSetting > 2) {
-			currentSetting = 0;
 		}
-		else if (currentSetting < 0) {
-			currentSetting = 2;
+		delay(250);
+		lcd.print("Calibrate?");
+		while (!buttonDetect(buttonPin)) {
+			if (currentSetting > 2) {
+				currentSetting = 0;
+			}
+			else if (currentSetting < 0) {
+				currentSetting = 2;
+			}
+			lcd.setCursor(0, 1);
+			lcd.write(byte(2));
+			switch (currentSetting) {
+			case 0:
+				lcd.print("Oxygen Sensor");
+				break;
+			case 1:
+				lcd.print("Helium Sensor");
+				break;
+			case 2:
+				lcd.print("Both Sensors ");
+				break;
+			}
 		}
-		lcd.setCursor(0, 1);
-		lcd.write(byte(2));
 		switch (currentSetting) {
 		case 0:
-			lcd.print("Oxygen Sensor");
+			calibrateOxygen();
 			break;
 		case 1:
-			lcd.print("Helium Sensor");
+			calibrateHelium();
 			break;
 		case 2:
-			lcd.print("Both Sensors ");
+			calibrateOxygen();
+			calibrateHelium();
 			break;
 		}
-	}
-	switch (currentSetting) {
-	case 0:
-		calibrateOxygen();
-		break;
-	case 1:
-		calibrateHelium();
-		break;
-	case 2:
-		calibrateOxygen();
-		calibrateHelium();
-		break;
-	}
+		*/
 }
+
 
 void calibrateOxygen() {
 	float calibrationPoint;
@@ -331,13 +335,15 @@ void calibrateOxygen() {
 
 	delay(1500);
 	lcd.clear();
-
-	if (!sensor2.isCalibrated()) {
-		calibrateHelium();
-	}
+	/*
+		if (!sensor2.isCalibrated()) {
+			calibrateHelium();
+		}
+	*/
 
 }
 
+/*
 void calibrateHelium() {
 	float mvOffset;
 	lcd.clear();
@@ -384,6 +390,7 @@ void calibrateHelium() {
 		calibrateOxygen();
 	}
 }
+*/
 
 //prints floats in a nicely formatted way so they don't jump around on the LCD screen
 void printFloat(float floatToPrint, bool highlight, int column, int row) {

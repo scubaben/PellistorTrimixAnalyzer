@@ -135,7 +135,7 @@ void displayGas() {
 	if ((millis() - lastSampleMillis) > sampleRate) {
 		printFloat(sensor1.gasContent(), false, 0, 0);
 		lcd.print("%");
-		printFloat(sensor2.gasContent(), false, 0, 1);
+		printFloat(sensor2.gasContent(sensor1.gasContent()), false, 0, 1);
 		lcd.print("%");
 		lcd.setCursor(6, 0);
 		lcd.write(byte(0));

@@ -1,2 +1,6 @@
 *.*
 !*.ino
+!.gitattributes
+!.gitignore
+!LICENSE
+!README.MD

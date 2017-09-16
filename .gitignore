@@ -1,6 +1,5 @@
-*.*
-!*.ino
-!.gitattributes
-!.gitignore
-!LICENSE
-!README.MD
+/.vs
+/__vm
+/Debug
+/Release
+*.sln

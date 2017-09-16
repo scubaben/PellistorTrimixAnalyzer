@@ -3,5 +3,5 @@
 /Debug
 /Release
 *.sln
-*.vcproj
-*.vcproj.filters
+*.vcxproj
+*.vcxproj.filters

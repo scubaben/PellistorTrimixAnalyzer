@@ -25,7 +25,7 @@ SOFTWARE.
 #include <EEPROM.h> //eeprom library for saving calibration data
 #include "Sensor.h"
 
-#define VERSION "0.1"
+#define VERSION "0.2"
 
 #define buttonPin A3
 #define encoderPinA 0
